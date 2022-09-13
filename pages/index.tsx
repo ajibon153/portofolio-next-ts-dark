@@ -3,6 +3,8 @@ import About from '../components/About/About';
 import Experience from '../components/Experience/Experience';
 import Header from '../components/Head/Header';
 import Navigation from '../components/navigation/Navigation';
+import Services from '../components/Services/Services';
+import Contact from '../components/Contact/Contact';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
@@ -12,6 +14,8 @@ const Home: NextPage = () => {
       <Navigation />
       <About />
       <Experience />
+      <Services />
+      <Contact />
     </div>
   );
 };

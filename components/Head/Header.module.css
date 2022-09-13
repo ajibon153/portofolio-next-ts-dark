@@ -1,11 +1,12 @@
 .header {
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 7rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .header__container {
   text-align: center;
+  /* display: flex; */
   height: 100%;
   position: relative;
 }
@@ -24,7 +25,7 @@
   gap: 0.8rem;
   position: absolute;
   left: 0;
-  bottom: 3rem;
+  bottom: 5rem;
 }
 
 .header___social::after {
@@ -35,11 +36,43 @@
 }
 
 .me {
-  background: linear-gradient(var(--color-primary));
-  width: 22rem;
-  height: 30rem;
-  position: absolute;
-  left: calc(50%-11rem);
+  background: linear-gradient(var(--color-primary), transparent);
+  width: 25rem;
+  padding-top: 2rem;
+  /* height: 50rem; */
+  position: relative;
+  left: calc(50% - 12rem);
   margin-top: 4rem;
   border-radius: 12rem 12rem 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll__down {
+  position: absolute;
+  right: 0;
+  bottom: 5rem;
+  transform: rotate(90deg);
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+/* ================ Media Query (Medium) ================ */
+
+@media screen and (max-width: 1024px) {
+  .header {
+    min-height: 68vh;
+  }
+}
+
+/* ================ Media Query (Small) ================ */
+
+@media screen and (max-width: 600px) {
+  .header {
+    min-height: 100vh;
+  }
+  .header___social,
+  .scroll__down {
+    display: none;
+  }
 }
