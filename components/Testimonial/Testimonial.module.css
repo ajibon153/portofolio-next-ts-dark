@@ -2,7 +2,11 @@
   width: 96%;
   display: block;
   margin: auto;
-  padding-bottom: 4rem;
+  padding-bottom: 4rem !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--color-primary-variant);
 }
 
 .client__avatar {
@@ -35,7 +39,7 @@
 
 @media screen and (max-width: 1024px) {
   .testimonial__container {
-    width: 60%;
+    /* width: 60%; */
   }
 }
 
