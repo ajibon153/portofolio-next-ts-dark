@@ -49,9 +49,9 @@ const About = () => {
             perspiciatis soluta alias magnam eveniet nemo quibusdam quis
             voluptatum eos nisi sapiente, officia ad?
           </p>
-          <a href='#contact' className='btn btn-primary'>
+          {/* <a href='#contact' className='btn btn-primary'>
             Let us Talk
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

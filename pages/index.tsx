@@ -6,6 +6,7 @@ import Navigation from '../components/navigation/Navigation';
 import Services from '../components/Services/Services';
 import Contact from '../components/Contact/Contact';
 import Portfolio from '../components/Portfolio/Portfolio';
+import Testimonial from '../components/Testimonial/Testimonial';
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
       <Experience />
       <Services />
       <Portfolio />
+      <Testimonial />
       <Contact />
     </div>
   );
