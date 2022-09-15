@@ -1,52 +1,40 @@
-import React from 'react';
-import './Portfolio.module.css';
-import Card from './Card';
-import Portfolio_data from './Portfolio_data';
+import Link from 'next/link';
+import Image from 'next/future/image';
+
+import IMG1 from '../../assets/img1.webp';
+import IMG2 from '../../assets/img2.webp';
+import IMG3 from '../../assets/img3.webp';
+import IMG4 from '../../assets/img4.webp';
+import IMG5 from '../../assets/img5.webp';
+import IMG6 from '../../assets/img6.webp';
+
+import style from './Portfolio.module.css';
 
 const Portfolio = () => {
   return (
-    <>
-      <section className='Portfolio top' id='portfolio'>
-        <div className='container'>
-          <div className='heading text-center '>
-            <h4>VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK</h4>
-            <h1>My Portfolio</h1>
-          </div>
+    <section id='portfolio'>
+      <h5>My Recent Work</h5>
+      <h2>Portfolio</h2>
 
-          <div className='content grid'>
-            {Portfolio_data.map((value, index) => {
-              return (
-                <Card
-                  key={index}
-                  image={value.image}
-                  category={value.category}
-                  totalLike={value.totalLike}
-                  title={value.title}
-                />
-              );
-            })}
-
-            {/*<div className='box btn_shadow '>
-              <div className='img'>
-                  <img src='https://rainbowit.net/html/inbio/assets/images/portfolio/portfolio-01.jpg' alt='' />
-              </div>
-              <div className='category d_flex'>
-                  <span>Development</span>
-                  <label>
-                    <i className='far fa-heart'></i> 360
-                  </label>
-              </div>
-              <div className='title'>
-                  <h2>Mobile app landing design & Services</h2>
-                <a href='' className='arrow'>
-                  <i class='fas fa-arrow-right'></i>
-                </a>
-              </div>
-            </div>*/}
+      <div className={style.portfolio__container}>
+        <article className={style.portfolio__item}>
+          <div className={style.portfolio__item_image}>
+            <Image src={IMG1} alt='portfolio1' />
+            <h3>This is a portfolio item title</h3>
+            <Link href='http://github.com' className='btn' passHref>
+              <a target='_blank'>Github</a>
+            </Link>
+            <Link
+              href='http://jibon.my.id'
+              className='btn btn-primary'
+              passHref
+            >
+              <a target='_blank'>Live Demo</a>
+            </Link>
           </div>
-        </div>
-      </section>
-    </>
+        </article>
+      </div>
+    </section>
   );
 };
 

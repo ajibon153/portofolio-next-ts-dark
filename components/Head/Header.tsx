@@ -18,7 +18,8 @@ const Header = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <header className={style.header} id='header'>
-        <div className={`container ${style.header__container}`}>
+        {/* container */}
+        <div className={` ${style.header__container}`}>
           <h5>Hello I am</h5>
           <h1>Aji Muhammad Fauji</h1>
           <h5 className='text-light'>Front-End Developer</h5>

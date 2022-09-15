@@ -11,7 +11,7 @@
   --transition: all 400ms ease;
 
   --container-width-lg: 75%;
-  --container-width-md: 86%;
+  --container-width-md: 85%;
   --container-width-sm: 90%;
 }
 
@@ -84,6 +84,8 @@ section > h5 {
 .container {
   width: var(--container-width-lg);
   margin: 0 auto;
+  max-width: 900px;
+  /* padding: 0; */
 }
 
 .text-light {
@@ -116,7 +118,8 @@ section > h5 {
 
 @media screen and (max-width: 1024px) {
   .container {
-    width: var(---container-width-md);
+    /* padding: 8%; */
+    width: var(--container-width-md);
   }
 
   section {
@@ -128,7 +131,8 @@ section > h5 {
 
 @media screen and (max-width: 600px) {
   .container {
-    width: var(---container-width-sm);
+    /* padding: 6%; */
+    width: var(--container-width-sm);
   }
 
   section > h2 {

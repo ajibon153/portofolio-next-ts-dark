@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  padding: 0 10%;
 }
 
 .main {
@@ -125,5 +125,21 @@
   }
   .logo img {
     filter: invert(1);
+  }
+}
+
+/* ================ Media Query (Medium) ================ */
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 8%;
+  }
+}
+
+/* ================ Media Query (Small) ================ */
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 0 5%;
   }
 }

@@ -5,16 +5,17 @@ import Header from '../components/Head/Header';
 import Navigation from '../components/navigation/Navigation';
 import Services from '../components/Services/Services';
 import Contact from '../components/Contact/Contact';
-import styles from '../styles/Home.module.css';
+import Portfolio from '../components/Portfolio/Portfolio';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className={'container'}>
       <Header />
       <Navigation />
       <About />
       <Experience />
       <Services />
+      <Portfolio />
       <Contact />
     </div>
   );
