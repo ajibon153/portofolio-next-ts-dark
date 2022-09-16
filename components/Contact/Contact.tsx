@@ -1,50 +1,58 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { MdOutlineEmail } from 'react-icons/md';
 import { BsWhatsapp } from 'react-icons/bs';
 import Link from 'next/link';
 
 import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 
 import style from './Contact.module.css';
+import { useRouter } from 'next/router';
 
-interface EmailMe {
-  name: string;
-  email: string;
-  message: string;
-}
+import LoadingComponent from '../Loading/Loading';
 
 const Contact = () => {
+  const [IsLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const router = useRouter();
 
-  const sendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const sendEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    console.log('formRef.current', formRef.current);
+    const Service_ID: string = process.env.EMAILJS_SERVICE_ID ?? '';
+    const Template_ID: string = process.env.EMAILJS_TEMPLATE_ID ?? '';
+    const Emjs_Key: string = process.env.EMAILJS_PUBLIC_KEY ?? '';
 
-    let name = formRef.current!.name.valueOf;
-    console.log('name', name);
-
-    let email = formRef.current!.email.value;
-    console.log('email', email);
-
-    let message = formRef.current!.message.value;
-    console.log('message', message);
-
-    emailjs
-      .sendForm(
-        'service_pmck7pj',
-        'template_oir24m8',
-        formRef.current!,
-        'fqu4v0ID7sDOY6rm4'
-      )
+    await emailjs
+      .sendForm(Service_ID, Template_ID, formRef.current!, Emjs_Key)
       .then(
-        (result) => {
-          console.log(result.text);
+        (result: any) => {
+          if (result.text) {
+            Swal.fire('Success!', 'Send message success!', 'success');
+
+            router.push(window.location.origin + '#sendmail');
+            formRef.current!.name.value = '';
+            formRef.current!.email.value = '';
+            formRef.current!.message.value = '';
+          } else fail(result);
         },
         (error) => {
-          console.log(error.text);
+          fail(error);
         }
       );
+
+    setIsLoading(false);
+
+    function fail(error: { [key: string]: string }) {
+      console.log(error.text);
+      alert(error.text);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.text,
+      });
+    }
   };
 
   return (
@@ -87,10 +95,26 @@ const Contact = () => {
             // row={7}
             placeholder='your message'
             required
+            style={{ height: '200px' }}
           />
-          <button type='submit' className='btn btn-primary' onClick={sendEmail}>
-            Send Message
-          </button>
+          {IsLoading ? (
+            <div
+              className={`btn btn-primary ${style.custom__button} ${
+                IsLoading ? style.custom__button_disable : ''
+              }`}
+            >
+              <LoadingComponent />
+            </div>
+          ) : (
+            <button
+              type='submit'
+              id='sendmail'
+              className={`btn btn-primary ${style.custom__button}`}
+              onClick={sendEmail}
+            >
+              Send Message
+            </button>
+          )}
         </form>
       </div>
     </section>

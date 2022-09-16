@@ -20,7 +20,7 @@ const Testimonial = () => {
         className={style.testimonial__container}
         modules={[Pagination, Navigation]}
         spaceBetween={40}
-        slidesPerView={2}
+        slidesPerView={1}
         pagination={{ clickable: true }}
         navigation
       >

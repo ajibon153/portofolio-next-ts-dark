@@ -58,6 +58,23 @@
   color: var(--color-white);
 }
 
+.custom__button {
+  width: 160px;
+  height: 50px;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom__button_disable {
+  background: var(--color-primary-variant);
+  border: none;
+  cursor: default;
+}
+.custom__button_disable:hover {
+  background: var(--color-primary-variant);
+}
+
 /* ================ Media Query (Medium) ================ */
 
 @media screen and (max-width: 1024px) {
